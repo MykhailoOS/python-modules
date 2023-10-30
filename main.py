@@ -20,22 +20,20 @@ class GoldDiscount(Discount.Discount):
         return 0.8
 
 
+if __name__ == '__main__':
+    pr_1 = Product.Product('banana', 50)
+    pr_2 = Product.Product('apple', 51)
+    pr_3 = Product.Product('orange', 52)
 
-pr_1 = Product.Product('banana', 50)
-pr_2 = Product.Product('apple', 51)
-pr_3 = Product.Product('orange', 52)
+    cart_1 = Cart.Cart()
+    cart_2 = Cart.Cart(SilverDiscount())
 
+    cart_1.add_product(pr_1)
+    cart_1.add_product('keyboard')
+    cart_1.add_product(pr_2)
+    cart_1.add_product(pr_3)
 
-cart_1 = Cart.Cart()
-cart_2 = Cart.Cart(SilverDiscount())
+    cart_2.add_product(pr_1, 5)
 
-
-cart_1.add_product(pr_1)
-cart_1.add_product('keyboard')
-cart_1.add_product(pr_2)
-cart_1.add_product(pr_3)
-
-cart_2.add_product(pr_1, 5)
-
-print(cart_1)
-print(cart_2)
+    print(cart_1)
+    print(cart_2)
